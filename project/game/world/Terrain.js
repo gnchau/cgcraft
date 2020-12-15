@@ -106,7 +106,6 @@ export default class Terrain {
 
         const geometry = new THREE.BufferGeometry();
 
-        // console.log("BEGIN: " + cx + "," + cz + " " + performance.now())
         for (let y = 0; y < utils.GAME_MAX_HEIGHT; ++y) {
             for (let z = 0; z < utils.GAME_SIZE; ++z) {
                 for (let x = 0; x < utils.GAME_SIZE; ++x) {
