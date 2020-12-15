@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta class="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CG Island</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="favicon-32x32.png">
+</head>
+    <body>
+    <canvas id="can"></canvas>
+    <div id="crosshair">
+        <img src="assets/crosshair.png" class="crosshair" />
+    </div>
+
+    <div id="hud">
+        <div class="materialSelector">
+            <input type="radio" class="block" id="0" /><label
+                for="0"
+                style="background-position: -0% -0%"
+        ></label
+        ><input type="radio" class="block" id="1" /><label
+                for="1"
+                style="background-position: 50% -0%"
+        ></label
+        ><input type="radio" class="block" id="2" /><label
+                for="2"
+                style="background-position: 100% -0%"
+        ></label>
+        </div>
+    </div>
+
+    <!--Note: I did not code three.js.-->
+    <script src="three/build/three.min.js"></script>
+    <!--Note: I did not code perlin.js; I took it from https://github.com/josephg/noisejs/blob/master/perlin.js-->
+    <script src="js/perlin.js"></script>
+    <script type="module" src="js/main.js"></script>
+    </body>
+</html>

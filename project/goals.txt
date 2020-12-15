@@ -1,0 +1,14 @@
+canvas - yes
+two 3d shapes - cubes, sphere
+one perspective projection - yes (camera manager)
+one camera - yes (camera manager)
+two 3d mesh objects - dragon and cloud from assets/dragon/scene.gltf and assets/clouds/scene.gltf
+lighting source - yes - ambient
+two textures - yes - dirt/grass/stone from textures.png and skydome from skydome.jpg
+two UI - yes mouse for looking/placing/deleting and keyboard for movement/material selection
+
+additional:
+
+picking - white lines and deleting/placing
+surfaces - perlin noise terrain gen
+dynamic loading of textures - load textures from texture file
