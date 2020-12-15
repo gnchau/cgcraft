@@ -4,6 +4,8 @@ import {ControlManager} from "../game/player/ControlManager.js";
 import * as utils from "../game/GameUtils.js"
 import {GLTFLoader} from "../three/examples/jsm/loaders/GLTFLoader.js";
 import {DRACOLoader} from "../three/examples/jsm/loaders/DRACOLoader.js";
+import {OBJLoader} from "../three/examples/jsm/loaders/OBJLoader.js";
+import {MTLLoader} from "../three/examples/jsm/loaders/MTLLoader.js";
 
 function main() {
     const canvas = document.querySelector("#can");
@@ -40,6 +42,35 @@ function main() {
     modelLoader.setDRACOLoader(dracoLoader);
     loadModelFromPath(modelLoader, utils.DRAGON.path, utils.DRAGON.position, utils.DRAGON.scale);
     loadModelFromPath(modelLoader, utils.CLOUD.path, utils.CLOUD.position, utils.CLOUD.scale);
+    const meshLoader = new OBJLoader();
+    loadMeshFromPath(meshLoader, utils.OBJ_CLOUDS.path, utils.OBJ_CLOUDS.position, utils.OBJ_CLOUDS.scale);
+    var mtlLoader = new MTLLoader();
+    mtlLoader.setPath('assets/bird/');
+    var url = utils.OBJ_BIRD.mat_path;
+    mtlLoader.load( url, function( materials ) {
+        const px = utils.OBJ_BIRD.position[0];
+        const py = utils.OBJ_BIRD.position[1];
+        const pz = utils.OBJ_BIRD.position[2];
+
+        const sx = utils.OBJ_BIRD.scale[0];
+        const sy = utils.OBJ_BIRD.scale[1];
+        const sz = utils.OBJ_BIRD.scale[2];
+
+        materials.preload();
+
+        var objLoader = new OBJLoader();
+        objLoader.setMaterials( materials );
+        objLoader.setPath(utils.OBJ_BIRD.path);
+        objLoader.load(utils.OBJ_BIRD.name, function ( object ) {
+
+            object.scale.set(sx, sy, sz);
+            object.position.set(px, py, pz);
+            scene.add( object );
+
+        });
+
+    });
+
 
     function render() {
         if (resizeRendererToDisplaySize(renderer)) {
@@ -67,6 +98,7 @@ function main() {
         controls = new ControlManager(camera, document.body, world, scene, canvas);
         world.setTexture(texture);
         scene.add(utils.AMBIENT_LIGHT);
+
         mainPlayLoop();
     }
 
@@ -98,6 +130,28 @@ function main() {
             },
         );
     }
+
+    function loadMeshFromPath(meshLoader, pathToFile, posn, scale) {
+        // Load a glTF resource
+        meshLoader.load(
+            // resource URL
+            pathToFile,
+            // called when the resource is loaded
+            function (object) {
+
+                object.traverse(function(child) {
+                    if (child instanceof THREE.Mesh) {
+                        child.material.ambient.setHex(0xFF0000);
+                        child.material.color.setHex(0x00FF00);
+                    }
+                });
+                object.scale.set(scale[0], scale[1], scale[2]);
+                object.position.set(posn[0], posn[1], posn[2]);
+                scene.add( object );
+            },
+        );
+    }
+
 
 
     init();
