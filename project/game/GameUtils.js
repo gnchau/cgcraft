@@ -12,6 +12,20 @@ export const DRAGON = {
     position : [-GAME_SIZE/2, GAME_MAX_HEIGHT/5, 0],
     scale: [0.25, 0.25, 0.25]
 }
+
+export const OBJ_CLOUDS = {
+    path : "assets/cloud.obj",
+    position : [GAME_SIZE/2, GAME_MAX_HEIGHT/7, GAME_SIZE/2],
+    scale: [0.25, 0.25, 0.25]
+}
+
+export const OBJ_BIRD = {
+    path : "assets/bird/free_bird.obj",
+    mat_path : "free_bird.mtl",
+    position : [GAME_SIZE/2, -130, GAME_SIZE/2],
+    scale: [20, 20, 20]
+}
+
 export const LIGHT_VARS = {
     color : 0xffffff,
     intensity : 0.9,
