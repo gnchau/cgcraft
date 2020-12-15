@@ -1,0 +1,26 @@
+{
+  "name": "cg-craft",
+  "version": "1.0.0",
+  "description": "a minimalist blockeditor - CS4300 final project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gnchau/cgcraft.git"
+  },
+  "keywords": [
+    "graphics"
+  ],
+  "author": "Grant Chau",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gnchau/cgcraft/issues"
+  },
+  "homepage": "https://github.com/gnchau/cgcraft#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
