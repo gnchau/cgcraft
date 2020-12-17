@@ -113,8 +113,8 @@ export const BLOCK_FACES = [ // left, right, bottom, top, back, front
     },
 ];
 
-export const LATERAL_SPEED = 0.085;
-export const Y_SPEED = 0.2
+export const LATERAL_SPEED = 0.17;
+export const Y_SPEED = 0.4;
 export const BLOCK_SIDE = 64;
 export const BLOCK_TEXTURE_WIDTH = 192;
 export const BLOCK_TEXTURE_HEIGHT = 192;
